@@ -1,0 +1,12 @@
+{
+    "workbench.editor.autoLockGroups": {
+        "imagePreview.previewEditor": true,
+        "vscode.audioPreview": true,
+        "vscode.videoPreview": true,
+        "markdown-preview-enhanced": true,
+        "workbench.input.interactive": true,
+        "mainThreadWebview-markdown.preview": true
+    },
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true
+}
