@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>霸道总裁人物生成器</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffe6e6;
+            /* 背景色选择粉色系 */
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #b71540;
+            /* 标题颜色选择深粉色，符合霸道气质 */
+        }
+
+        #generate {
+            display: block;
+            width: 60%;
+            margin: 20px auto;
+            padding: 15px 0;
+            font-size: 20px;
+            color: #fff;
+            background: #ff69b4;
+            /* 按钮背景色选择浅粉色 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #generate:hover {
+            background: #ff1493;
+            /* 鼠标悬停时按钮颜色变深 */
+        }
+
+        #character-intro {
+            margin-top: 30px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            #generate {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>霸道总裁人物生成器</h1>
+        <button id="generate">生成总裁</button>
+        <div id="character-intro"></div>
+    </div>
+
+    <script>
+        // 人物属性的选项集合
+        const companies = ['跨国集团', '科技公司', '金融帝国', '时尚品牌', '地产巨头'];
+        const traits = ['冷酷无情', '精明能干', '魅力四射', '深谋远虑', '果断坚毅'];
+        const personalities = ['霸道', '温柔', '神秘', '幽默', '热情'];
+        const appearances = ['英俊潇洒', '玉树临风', '高大威猛', '温文尔雅', '风度翩翩'];
+
+        // 随机选择属性的函数
+        function getRandomProperty(properties) {
+            return properties[Math.floor(Math.random() * properties.length)];
+        }
+
+        // 生成人物介绍的函数
+        function generateCharacter() {
+            const company = getRandomProperty(companies);
+            const trait = getRandomProperty(traits);
+            const personality = getRandomProperty(personalities);
+            const appearance = getRandomProperty(appearances);
+
+            const characterIntro = `
+                公司：${company}<br>
+                特质：${trait}<br>
+                性格：${personality}<br>
+                外貌：${appearance}
+            `;
+
+            return characterIntro;
+        }
+
+        // 生成自传的函数
+        function generateAutobiography() {
+            const name = '李泽言'; // 可以随机生成名字
+            const company = getRandomProperty(companies);
+            const trait = getRandomProperty(traits);
+            const personality = getRandomProperty(personalities);
+            const appearance = getRandomProperty(appearances);
+            const achievement = '企业界的传奇人物，以铁血手腕和独到眼光著称';
+
+            return `我是${name}，掌控着${company}。我以${trait}闻名于商界，性格${personality}，外貌${appearance}。在商场上，我以${achievement}而备受尊敬。`;
+        }
+
+        // 点击按钮事件处理
+        document.getElementById('generate').addEventListener('click', () => {
+            const characterIntro = generateCharacter();
+            const autobiography = generateAutobiography();
+
+            document.getElementById('character-intro').innerHTML = `
+                <h2>人物介绍</h2>
+                <p>${characterIntro}</p >
+                <h2>个人履历</h2>
+                <p>${autobiography}</p >
+            `;
+        });
+    </script>
+</body>
+
+</html>
